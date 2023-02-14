@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> About page</h1>
+<p>This is about the page</p>
+<p> {{ name}} : {{ number }}</p>
+<ul>
+{% for item in alist%}
+<li> {{forloop.counter}} - {{item}}</li>
+{% endfor %}
+</ul>
+{% endblock %}
