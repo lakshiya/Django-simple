@@ -1,0 +1,60 @@
+<!-- Study Source :  -->
+
+https://www.youtube.com/watch?v=F5mRW0jo-U4
+
+<!-- Documentation :  -->
+
+https://www.djangoproject.com/
+
+<!-- Create virtual environment and install Django  -->
+
+$ brew install virtualenv
+
+$ virtualenv -p python3 .
+
+$ source bin/activate
+
+$ deactivate
+
+<!-- Create a django project -->
+
+$ mkdir src
+$ cd src
+$ django-admin startproject trydjango .
+$ python manage.py runserver // To run the server
+
+$ python manage.py migrate
+
+% If your database doesn't exist yet, migrate creates all the necessary tables to match your model definitions.
+% Otherwise if the database already exists, migrate updates the existing table definitions to match the model definitions -- i.e. maybe you added a field to one of your models, so migratewould add that column to the database table.
+
+% Create an admin
+
+$ python manage.py createsuperuser
+
+<!-- Create a component that will be used in the application  -->
+
+$ python manage.py startapp products
+
+% This creates a products folder inside src folder and creates boilerplate code
+
+Add products to the settings.py file under installed apps
+
+Inside products/models.py - Create a products class and add variables
+
+% To detect migrations
+$ python manage.py makemigrations
+
+<!-- To apply changes -->
+
+$ python manage.py migrate
+
+% Use below to sync
+
+$ python manage.py migrate --run-syncdb
+
+<!--  Delete pycache, sb.sqlite3, files under migrations to do a new start on DB stuff -->
+
+<!-- Find and kill processes running on system -->
+
+sudo lsof -t -i tcp:8000 | xargs kill -9
